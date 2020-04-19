@@ -1,5 +1,5 @@
-= Template titre
-auteur 
+= Exercices sur la qualité du code
+O. Capuozzo
 v1.0, 2020-04-13: Version asciidoc
 :description: template description
 :icons: font
@@ -34,7 +34,7 @@ ifndef::backend-pdf[]
 image:cogitas.png[title="cogitas", 200]
 endif::[]
 
-## Introduction à des éléments de qualité primordiaux en génie logiciel
+## Introduction à des éléments de qualité en développement logiciel
 
 Les exemples de code sont sont largement inspirés, parfois même de pur extrait, du travail en autonomie des étudiants de BTS Informatique du lycée Léonard de Vinci à Melun.
 
@@ -65,7 +65,7 @@ TIP: Ces deux premières contraintes constituent la règle : **Une Fois et Une S
 En respectant ces contraintes, parfois contradictoires,  le développeur produit du code clair et simple :
 les classes ne sont pas chargées de responsabilité et les méthodes courtes (selon différents points de vue : moins de 10 lignes ou qu'importe si le contenu est clairement lisible et ne contient pas de duplication). Exceptions connues : implémentation d'un algorithme connu, recherche d'optimisation... le tout bien commenté.
 
-Documentations :
+Références :
 
 1. eXtreme Promamming « La référence » de Kent Beck - en français chez CampusPress
 2. Refactoring de Martin Folwer
