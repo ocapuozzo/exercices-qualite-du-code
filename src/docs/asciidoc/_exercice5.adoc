@@ -1,0 +1,49 @@
+= Exercice 5 portée de variable
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== Portée de variable
+
+Voici un code java :
+
+
+[source, java, linenums]
+----
+package org.vincimelun.da;
+
+public class Exemple {
+ private int indexCandidat;
+ private String lesCandidats[]= {"c1", "c2", "c3", "c4", "c5"};
+
+ public void afficheNoms(){
+  for (indexCandidat=0; indexCandidat< lesCandidats.length; indexCandidat++) {
+    System.out.println(lesCandidats[indexCandidat]);
+  }
+ }
+
+ public void afficheNomsBis(){
+  for (indexCandidat=0; indexCandidat< lesCandidats.length; indexCandidat++) {
+   afficheCandidat(lesCandidats[indexCandidat]);
+  }
+ }
+
+ public void afficheCandidat(String candidat){
+   System.out.println("le candidat courant est : "+ candidat);
+   System.out.println("le candidat suivant est : "+
+     lesCandidats[indexCandidat++]);
+ }
+
+ public static void main(String[] args) {
+   Exemple test = new Exemple();
+   test.afficheNoms();
+   test.afficheNomsBis();
+ }
+}
+
+----
+
+=== Questions
+1. Noter le résultat produit sur la console suite à l'exécution du programme ci-dessus.
+2. Identifier et corriger le bogue.
+

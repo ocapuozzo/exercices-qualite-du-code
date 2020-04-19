@@ -1,0 +1,86 @@
+= Template titre
+auteur 
+v1.0, 2020-04-13: Version asciidoc
+:description: template description
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matieres
+:toc:
+:toclevels: 3
+:source-highlighter: coderay
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+:title-logo-image: image:logo.png[pdfwidth=4.25in,align=center]
+endif::[]
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Présentation
+
+ifdef::backend-pdf[]
+image:cogitas.png[title="cogitas", 200]
+endif::[]
+
+ifndef::backend-pdf[]
+image:cogitas.png[title="cogitas", 200]
+endif::[]
+
+## Introduction à des éléments de qualité primordiaux en génie logiciel
+
+Les exemples de code sont sont largement inspirés, parfois même de pur extrait, du travail en autonomie des étudiants de BTS Informatique du lycée Léonard de Vinci à Melun.
+
+Les extraits de code présentés ci-dessous peuvent être bogués ou tout simplement « mal écrit ». Concernant ce dernier point, il est préférable de parler de code « mal conçu », qui dénote mieux l'acte de coder dans la mesure où il fusionne l'analyse et l'écriture. Le « pisseur de lignes » n'existe pas.
+
+[quote, Martin Fowler]
+Any fool can write code that a computer can understand. Good programmers write code that humans can understand 
+
+=== Quelques facteurs clés de qualité
+
+Kent Beck définit dans les années 90, des règles de conception du logiciel; par ordre décroissant :
+
+Le code :
+
+. passe les tests  (l'objectif principal est que le logiciel fonctionne comme prévu et que des tests soient là pour garantir que cela se produise.)
+. révèle ses intentions (le code est la documentation, la logique métier omniprésente)
+. ne contient pas de duplication
+
+Le système (code et tests pris dans leur ensemble) doit communiquer tout ce que vous avez l'intention de communiquer.
+Le système ne devrait contenir aucune duplication de code.
+
+TIP: Ces deux premières contraintes constituent la règle : **Une Fois et Une Seule**.
+
+[start=4]
+. Le système doit contenir un nombre minimal de classes.
+. Le système doit contenir un nombre minimal de méthodes.
+
+En respectant ces contraintes, parfois contradictoires,  le développeur produit du code clair et simple :
+les classes ne sont pas chargées de responsabilité et les méthodes courtes (selon différents points de vue : moins de 10 lignes ou qu'importe si le contenu est clairement lisible et ne contient pas de duplication). Exceptions connues : implémentation d'un algorithme connu, recherche d'optimisation... le tout bien commenté.
+
+Documentations :
+
+1. eXtreme Promamming « La référence » de Kent Beck - en français chez CampusPress
+2. Refactoring de Martin Folwer
+3. Refactoring to Patterns de Joshua Kerievsky
+
+<<<
+include::_exercice1.adoc[leveloffset=+1]
+<<<
+include::_exercice2.adoc[leveloffset=+1]
+<<<
+include::_exercice3.adoc[leveloffset=+1]
+<<<
+include::_exercice4.adoc[leveloffset=+1]
+<<<
+include::_exercice5.adoc[leveloffset=+1]
+<<<
+include::_solutions.adoc[leveloffset=+1]
+

@@ -1,0 +1,14 @@
+= Exercice 4 Nommage
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== Question de nommage
+
+Une méthode extraite d'une application développée par un étudiant :
+image::code-java.png[code avec pb de nommage]
+
+=== Questions
+
+1. Dans quelle mesure les commentaires vous paraissent-ils utiles ?
+2. Proposer un refactoring (une refonte qui préserve le comportement).

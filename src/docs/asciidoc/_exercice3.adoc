@@ -1,0 +1,18 @@
+= Exercice 3 Exception
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== Gestion des exceptions
+
+Voici une méthode extraite d'une application développée par un étudiant :
+
+image::code-ge.png[code avec gestion des exceptions]
+
+=== Questions
+1. Quels sont les différents types de problèmes pouvant être générés par ce code ? (3 types différents)
+2. Proposer un refactoring (une refonte qui préserve le comportement).
+3. Proposer une amélioration comportementale.
+
+
+=== Conclusion

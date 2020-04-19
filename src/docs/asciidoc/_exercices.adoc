@@ -1,0 +1,166 @@
+= Exercices
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== 1/ Instructions _return_ dans une fonction
+
+Soit le fichier test.php définit par les instructions suivantes :
+
+[source, php]
+----
+      1 <?php
+      2 function quiEsTu($prenom, $nom) {
+      3   $res="inconnu";
+      4   if ($prenom == ""){
+      5      $res="prénom inconnu";
+      6      return $nom;
+      7   }
+      8   if ($prenom=="" && $nom=="") {
+      9      return $res;
+     10   }
+     11   else {
+     12      $res=$prenom." ".$nom;
+     13   }
+     14   return $res;
+     15 }
+     16
+     17 function test() {
+     18   echo  "Bonjour " . quiEsTu("", "")."\n";
+     19   echo  "Bonjour " . quiEsTu("", "tintin")."\n";
+     20 }
+     21
+     22 f();
+     23?>
+----
+
+=== Questions
+
+. Noter le résultat produit sur la console par la ligne de commande suivante :
+`php test.php`
+
+. Relever et commenter les instructions inutiles
+. Proposer une refonte de la fonction `quiEsTu` sans en changer le comportement final (refactoring)
+. A partir de votre solution, améliorer le comportement de la fonction `quiEsTu` (maintenance corrective/évolutive).
+
+=== Conclusion
+
+== 2/ Duplication de code
+
+Extrait de code d'une application développée par un étudiant :
+
+
+[source, java, linenums]
+----
+public class FenetrePrincipale extends Jframe [...] {
+
+public void actionPerformed(ActionEvent evt) {
+  Object source = evt.getSource();
+  if (source==btGenerationAndQuit) {
+     //  recupération du nom du repertoire
+     repCourant = (String) repList.getSelectedItem();
+     String nomAlbum = champsNomAlbum.getText();
+
+     // recupération du nom de la source
+     pathSource = champsSource.getText(); [...]
+
+     // création de l'album
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     // lancement de l'index & fermeture de l'application
+     fileUtil.launchIndex(repCourant, nomAlbum);
+     System.exit(0);
+   }
+   if (source==mnGeneration) {
+     //  recupération du nom du repertoire
+     repCourant = (String) repList.getSelectedItem();
+     String nomAlbum = champsNomAlbum.getText();
+
+     // recupération du nom de la source
+     pathSource = champsSource.getText(); [...]
+
+     // création de l'album
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     // lancement de l'index
+     fileUtil.launchIndex(repCourant, nomAlbum);
+   }
+}
+
+----
+
+=== Questions
+. Quels types de problème de visibilité et de maintenance véhicule ce code ?
+. Proposer un refactoring (une refonte du code qui préserve le comportement initial).
+
+=== Conclusion
+
+
+== Gestion des exceptions
+
+Voici une méthode extraite d'une application développée par un étudiant :
+
+image::code-ge.png[code avec gestion des exceptions]
+
+=== Questions
+1. Quels sont les différents types de problèmes pouvant être générés par ce code ? (3 types différents)
+2. Proposer un refactoring (une refonte qui préserve le comportement).
+3. Proposer une amélioration comportementale.
+
+
+=== Conclusion
+
+== Question de nommage
+
+Une méthode extraite d'une application développée par un étudiant :
+image::code-java.png[code avec pb de nommage]
+
+=== Questions
+
+1. Dans quelle mesure les commentaires vous paraissent-ils utiles ?
+2. Proposer un refactoring (une refonte qui préserve le comportement).
+
+== Portée de variable
+
+Voici un code java :
+
+
+[source, java, linenums]
+----
+package org.vincimelun.da;
+
+public class Exemple {
+ private int indexCandidat;
+ private String lesCandidats[]= {"c1", "c2", "c3", "c4", "c5"};
+
+ public void afficheNoms(){
+  for (indexCandidat=0; indexCandidat< lesCandidats.length; indexCandidat++) {
+    System.out.println(lesCandidats[indexCandidat]);
+  }
+ }
+
+ public void afficheNomsBis(){
+  for (indexCandidat=0; indexCandidat< lesCandidats.length; indexCandidat++) {
+   afficheCandidat(lesCandidats[indexCandidat]);
+  }
+ }
+
+ public void afficheCandidat(String candidat){
+   System.out.println("le candidat courant est : "+ candidat);
+   System.out.println("le candidat suivant est : "+
+     lesCandidats[indexCandidat++]);
+ }
+
+ public static void main(String[] args) {
+   Exemple test = new Exemple();
+   test.afficheNoms();
+   test.afficheNomsBis();
+ }
+}
+
+----
+
+=== Questions
+1. Noter le résultat produit sur la console suite à l'exécution du programme ci-dessus.
+2. Identifier et corriger le bogue.
+

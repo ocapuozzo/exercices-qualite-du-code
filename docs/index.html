@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="description" content="template description">
+<meta name="author" content="auteur">
+<title>Template titre</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Template titre</h1>
+<div class="details">
+<span id="author" class="author">auteur</span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2020-04-13</span>
+<br><span id="revremark">Version asciidoc</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matieres</div>
+<ul class="sectlevel1">
+<li><a href="#présentation">Présentation</a></li>
+<li><a href="#introduction-à-des-éléments-de-qualité-primordiaux-en-génie-logiciel">Introduction à des éléments de qualité primordiaux en génie logiciel</a>
+<ul class="sectlevel2">
+<li><a href="#quelques-facteurs-clés-de-qualité">Quelques facteurs clés de qualité</a></li>
+</ul>
+</li>
+<li><a href="#exercice-1-return">Exercice 1 Return</a>
+<ul class="sectlevel2">
+<li><a href="#1-instructions-em-return-em-dans-une-fonction">1/ Instructions <em>return</em> dans une fonction</a>
+<ul class="sectlevel3">
+<li><a href="#questions">Questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#exercice-2-duplication">Exercice 2 Duplication</a>
+<ul class="sectlevel2">
+<li><a href="#duplication-de-code">Duplication de code</a>
+<ul class="sectlevel3">
+<li><a href="#questions-2">Questions</a></li>
+<li><a href="#conclusion-2">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#exercice-3-exception">Exercice 3 Exception</a>
+<ul class="sectlevel2">
+<li><a href="#gestion-des-exceptions">Gestion des exceptions</a>
+<ul class="sectlevel3">
+<li><a href="#questions-3">Questions</a></li>
+<li><a href="#conclusion-3">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#exercice-4-nommage">Exercice 4 Nommage</a>
+<ul class="sectlevel2">
+<li><a href="#question-de-nommage">Question de nommage</a>
+<ul class="sectlevel3">
+<li><a href="#questions-4">Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#exercice-5-portée-de-variable">Exercice 5 portée de variable</a>
+<ul class="sectlevel2">
+<li><a href="#portée-de-variable">Portée de variable</a>
+<ul class="sectlevel3">
+<li><a href="#questions-5">Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#solutions">Solutions</a>
+<ul class="sectlevel2">
+<li><a href="#Éléments-de-réponses-aux-questions">Éléments de réponses aux questions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="présentation"><a class="anchor" href="#présentation"></a>Présentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><img src="images/cogitas.png" alt="cogitas" width="200" title="cogitas"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-à-des-éléments-de-qualité-primordiaux-en-génie-logiciel"><a class="anchor" href="#introduction-à-des-éléments-de-qualité-primordiaux-en-génie-logiciel"></a>Introduction à des éléments de qualité primordiaux en génie logiciel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les exemples de code sont sont largement inspirés, parfois même de pur extrait, du travail en autonomie des étudiants de BTS Informatique du lycée Léonard de Vinci à Melun.</p>
+</div>
+<div class="paragraph">
+<p>Les extraits de code présentés ci-dessous peuvent être bogués ou tout simplement « mal écrit ». Concernant ce dernier point, il est préférable de parler de code « mal conçu », qui dénote mieux l&#8217;acte de coder dans la mesure où il fusionne l&#8217;analyse et l&#8217;écriture. Le « pisseur de lignes » n&#8217;existe pas.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+Any fool can write code that a computer can understand. Good programmers write code that humans can understand 
+</blockquote>
+<div class="attribution">
+&#8212; Martin Fowler
+</div>
+</div>
+<div class="sect2">
+<h3 id="quelques-facteurs-clés-de-qualité"><a class="anchor" href="#quelques-facteurs-clés-de-qualité"></a>Quelques facteurs clés de qualité</h3>
+<div class="paragraph">
+<p>Kent Beck définit dans les années 90, des règles de conception du logiciel; par ordre décroissant :</p>
+</div>
+<div class="paragraph">
+<p>Le code :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>passe les tests  (l&#8217;objectif principal est que le logiciel fonctionne comme prévu et que des tests soient là pour garantir que cela se produise.)</p>
+</li>
+<li>
+<p>révèle ses intentions (le code est la documentation, la logique métier omniprésente)</p>
+</li>
+<li>
+<p>ne contient pas de duplication</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Le système (code et tests pris dans leur ensemble) doit communiquer tout ce que vous avez l&#8217;intention de communiquer.
+Le système ne devrait contenir aucune duplication de code.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Ces deux premières contraintes constituent la règle : <strong>Une Fois et Une Seule</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Le système doit contenir un nombre minimal de classes.</p>
+</li>
+<li>
+<p>Le système doit contenir un nombre minimal de méthodes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>En respectant ces contraintes, parfois contradictoires,  le développeur produit du code clair et simple :
+les classes ne sont pas chargées de responsabilité et les méthodes courtes (selon différents points de vue : moins de 10 lignes ou qu&#8217;importe si le contenu est clairement lisible et ne contient pas de duplication). Exceptions connues : implémentation d&#8217;un algorithme connu, recherche d&#8217;optimisation&#8230;&#8203; le tout bien commenté.</p>
+</div>
+<div class="paragraph">
+<p>Documentations :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>eXtreme Promamming « La référence » de Kent Beck - en français chez CampusPress</p>
+</li>
+<li>
+<p>Refactoring de Martin Folwer</p>
+</li>
+<li>
+<p>Refactoring to Patterns de Joshua Kerievsky</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercice-1-return"><a class="anchor" href="#exercice-1-return"></a>Exercice 1 Return</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="1-instructions-em-return-em-dans-une-fonction"><a class="anchor" href="#1-instructions-em-return-em-dans-une-fonction"></a>1/ Instructions <em>return</em> dans une fonction</h3>
+<div class="paragraph">
+<p>Soit le fichier test.php définit par les instructions suivantes :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="php">      1 <span class="inline-delimiter">&lt;?php</span>
+      <span class="integer">2</span> <span class="keyword">function</span> <span class="function">quiEsTu</span>(<span class="local-variable">$prenom</span>, <span class="local-variable">$nom</span>) {
+      <span class="integer">3</span>   <span class="local-variable">$res</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">inconnu</span><span class="delimiter">&quot;</span></span>;
+      <span class="integer">4</span>   <span class="keyword">if</span> (<span class="local-variable">$prenom</span> == <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>){
+      <span class="integer">5</span>      <span class="local-variable">$res</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">prénom inconnu</span><span class="delimiter">&quot;</span></span>;
+      <span class="integer">6</span>      <span class="keyword">return</span> <span class="local-variable">$nom</span>;
+      <span class="integer">7</span>   }
+      <span class="integer">8</span>   <span class="keyword">if</span> (<span class="local-variable">$prenom</span>==<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span> &amp;&amp; <span class="local-variable">$nom</span>==<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>) {
+      <span class="integer">9</span>      <span class="keyword">return</span> <span class="local-variable">$res</span>;
+     <span class="integer">10</span>   }
+     <span class="integer">11</span>   <span class="keyword">else</span> {
+     <span class="integer">12</span>      <span class="local-variable">$res</span>=<span class="local-variable">$prenom</span>.<span class="string"><span class="delimiter">&quot;</span><span class="content"> </span><span class="delimiter">&quot;</span></span>.<span class="local-variable">$nom</span>;
+     <span class="integer">13</span>   }
+     <span class="integer">14</span>   <span class="keyword">return</span> <span class="local-variable">$res</span>;
+     <span class="integer">15</span> }
+     <span class="integer">16</span>
+     <span class="integer">17</span> <span class="keyword">function</span> <span class="function">test</span>() {
+     <span class="integer">18</span>   <span class="predefined">echo</span>  <span class="string"><span class="delimiter">&quot;</span><span class="content">Bonjour </span><span class="delimiter">&quot;</span></span> . quiEsTu(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>).<span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>;
+     <span class="integer">19</span>   <span class="predefined">echo</span>  <span class="string"><span class="delimiter">&quot;</span><span class="content">Bonjour </span><span class="delimiter">&quot;</span></span> . quiEsTu(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">tintin</span><span class="delimiter">&quot;</span></span>).<span class="string"><span class="delimiter">&quot;</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>;
+     <span class="integer">20</span> }
+     <span class="integer">21</span>
+     <span class="integer">22</span> f();
+     <span class="integer">23</span><span class="inline-delimiter">?&gt;</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="questions"><a class="anchor" href="#questions"></a>Questions</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Noter le résultat produit sur la console par la ligne de commande suivante :
+<code>php test.php</code></p>
+</li>
+<li>
+<p>Relever et commenter les instructions inutiles</p>
+</li>
+<li>
+<p>Proposer une refonte de la fonction <code>quiEsTu</code> sans en changer le comportement final (refactoring)</p>
+</li>
+<li>
+<p>A partir de votre solution, améliorer le comportement de la fonction <code>quiEsTu</code> (maintenance corrective/évolutive).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conclusion"><a class="anchor" href="#conclusion"></a>Conclusion</h4>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercice-2-duplication"><a class="anchor" href="#exercice-2-duplication"></a>Exercice 2 Duplication</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="duplication-de-code"><a class="anchor" href="#duplication-de-code"></a>Duplication de code</h3>
+<div class="paragraph">
+<p>Extrait de code d&#8217;une application développée par un étudiant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td>
+  <td class="code"><pre><span class="directive">public</span> <span class="type">class</span> <span class="class">FenetrePrincipale</span> <span class="directive">extends</span> Jframe [...] {
+
+<span class="directive">public</span> <span class="type">void</span> actionPerformed(<span class="predefined-type">ActionEvent</span> evt) {
+  <span class="predefined-type">Object</span> source = evt.getSource();
+  <span class="keyword">if</span> (source==btGenerationAndQuit) {
+     <span class="comment">//  recupération du nom du repertoire</span>
+     repCourant = (<span class="predefined-type">String</span>) repList.getSelectedItem();
+     <span class="predefined-type">String</span> nomAlbum = champsNomAlbum.getText();
+
+     <span class="comment">// recupération du nom de la source</span>
+     pathSource = champsSource.getText(); [...]
+
+     <span class="comment">// création de l'album</span>
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     <span class="comment">// lancement de l'index &amp; fermeture de l'application</span>
+     fileUtil.launchIndex(repCourant, nomAlbum);
+     <span class="predefined-type">System</span>.exit(<span class="integer">0</span>);
+   }
+   <span class="keyword">if</span> (source==mnGeneration) {
+     <span class="comment">//  recupération du nom du repertoire</span>
+     repCourant = (<span class="predefined-type">String</span>) repList.getSelectedItem();
+     <span class="predefined-type">String</span> nomAlbum = champsNomAlbum.getText();
+
+     <span class="comment">// recupération du nom de la source</span>
+     pathSource = champsSource.getText(); [...]
+
+     <span class="comment">// création de l'album</span>
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     <span class="comment">// lancement de l'index</span>
+     fileUtil.launchIndex(repCourant, nomAlbum);
+   }
+}
+</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="questions-2"><a class="anchor" href="#questions-2"></a>Questions</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Quels types de problème de visibilité et de maintenance véhicule ce code ?</p>
+</li>
+<li>
+<p>Proposer un refactoring (une refonte du code qui préserve le comportement initial).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conclusion-2"><a class="anchor" href="#conclusion-2"></a>Conclusion</h4>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercice-3-exception"><a class="anchor" href="#exercice-3-exception"></a>Exercice 3 Exception</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="gestion-des-exceptions"><a class="anchor" href="#gestion-des-exceptions"></a>Gestion des exceptions</h3>
+<div class="paragraph">
+<p>Voici une méthode extraite d&#8217;une application développée par un étudiant :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/code-ge.png" alt="code avec gestion des exceptions">
+</div>
+</div>
+<div class="sect3">
+<h4 id="questions-3"><a class="anchor" href="#questions-3"></a>Questions</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Quels sont les différents types de problèmes pouvant être générés par ce code ? (3 types différents)</p>
+</li>
+<li>
+<p>Proposer un refactoring (une refonte qui préserve le comportement).</p>
+</li>
+<li>
+<p>Proposer une amélioration comportementale.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conclusion-3"><a class="anchor" href="#conclusion-3"></a>Conclusion</h4>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercice-4-nommage"><a class="anchor" href="#exercice-4-nommage"></a>Exercice 4 Nommage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="question-de-nommage"><a class="anchor" href="#question-de-nommage"></a>Question de nommage</h3>
+<div class="paragraph">
+<p>Une méthode extraite d&#8217;une application développée par un étudiant :
+image::code-java.png[code avec pb de nommage]</p>
+</div>
+<div class="sect3">
+<h4 id="questions-4"><a class="anchor" href="#questions-4"></a>Questions</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans quelle mesure les commentaires vous paraissent-ils utiles ?</p>
+</li>
+<li>
+<p>Proposer un refactoring (une refonte qui préserve le comportement).</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exercice-5-portée-de-variable"><a class="anchor" href="#exercice-5-portée-de-variable"></a>Exercice 5 portée de variable</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="portée-de-variable"><a class="anchor" href="#portée-de-variable"></a>Portée de variable</h3>
+<div class="paragraph">
+<p>Voici un code java :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td>
+  <td class="code"><pre><span class="keyword">package</span> <span class="namespace">org.vincimelun.da</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">Exemple</span> {
+ <span class="directive">private</span> <span class="type">int</span> indexCandidat;
+ <span class="directive">private</span> <span class="predefined-type">String</span> lesCandidats<span class="type">[]</span>= {<span class="string"><span class="delimiter">&quot;</span><span class="content">c1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">c2</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">c3</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">c4</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">c5</span><span class="delimiter">&quot;</span></span>};
+
+ <span class="directive">public</span> <span class="type">void</span> afficheNoms(){
+  <span class="keyword">for</span> (indexCandidat=<span class="integer">0</span>; indexCandidat&lt; lesCandidats.length; indexCandidat++) {
+    <span class="predefined-type">System</span>.out.println(lesCandidats[indexCandidat]);
+  }
+ }
+
+ <span class="directive">public</span> <span class="type">void</span> afficheNomsBis(){
+  <span class="keyword">for</span> (indexCandidat=<span class="integer">0</span>; indexCandidat&lt; lesCandidats.length; indexCandidat++) {
+   afficheCandidat(lesCandidats[indexCandidat]);
+  }
+ }
+
+ <span class="directive">public</span> <span class="type">void</span> afficheCandidat(<span class="predefined-type">String</span> candidat){
+   <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">le candidat courant est : </span><span class="delimiter">&quot;</span></span>+ candidat);
+   <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">le candidat suivant est : </span><span class="delimiter">&quot;</span></span>+
+     lesCandidats[indexCandidat++]);
+ }
+
+ <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
+   Exemple test = <span class="keyword">new</span> Exemple();
+   test.afficheNoms();
+   test.afficheNomsBis();
+ }
+}
+</pre></td>
+</tr></table></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="questions-5"><a class="anchor" href="#questions-5"></a>Questions</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Noter le résultat produit sur la console suite à l&#8217;exécution du programme ci-dessus.</p>
+</li>
+<li>
+<p>Identifier et corriger le bogue.</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="solutions"><a class="anchor" href="#solutions"></a>Solutions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Éléments-de-réponses-aux-questions"><a class="anchor" href="#Éléments-de-réponses-aux-questions"></a>Éléments de réponses aux questions</h3>
+<div class="paragraph">
+<p>Les conclusions</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Multiples sorties (return)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Un principe général consiste à formuler le fait qu’une fonction, qui par définition ne dispose que d’un point d’entrée (une fonction est appelée par son nom), ne devrait avoir qu’un seul point de sortie, qu’une seule instruction de retour (sauf exception qui ne nuirait pas à la lecture du code).  À noter que le point de sortie par défaut d’une procédure est la fin de se son corps (instruction return implicite).</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Duplication de code</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>On factorise la logique dupliquée (la séquence d&#8217;instructions) en concevant une fonction (méthode privée)</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Exception</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une fonction qui ne peut pas réaliser sa tache ne doit pas retourner à l&#8217;appelant.
+voir : <a href="http://profs.vinci-melun.org/profs/okpu/cours/gestionDesExceptions/" class="bare">http://profs.vinci-melun.org/profs/okpu/cours/gestionDesExceptions/</a></p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Commentaire</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une abondance de commentaire est signe de refactoring imminent.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Portée de variable</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une variable utilisée pour des besoins locaux devrait être déclarée&#8230;&#8203; localement (aux risques de devenir une zone tampon d&#8217;échange entre méthodes et provoquer des effets de bords indésirables).
+Une variable d&#8217;instance (un attribut, un champ) participe à la détermination de l&#8217;état d&#8217;un objet (instance). C&#8217;est une propriété qui est généralement accessible en lecture et ou écriture via des méthodes d&#8217;instance.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0<br>
+Last updated 2020-04-19 18:58:11 CEST
+</div>
+</div>
+</body>
+</html>

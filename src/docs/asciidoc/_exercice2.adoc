@@ -1,0 +1,56 @@
+= Exercice 2 Duplication
+
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== Duplication de code
+
+Extrait de code d'une application développée par un étudiant :
+
+
+[source, java, linenums]
+----
+public class FenetrePrincipale extends Jframe [...] {
+
+public void actionPerformed(ActionEvent evt) {
+  Object source = evt.getSource();
+  if (source==btGenerationAndQuit) {
+     //  recupération du nom du repertoire
+     repCourant = (String) repList.getSelectedItem();
+     String nomAlbum = champsNomAlbum.getText();
+
+     // recupération du nom de la source
+     pathSource = champsSource.getText(); [...]
+
+     // création de l'album
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     // lancement de l'index & fermeture de l'application
+     fileUtil.launchIndex(repCourant, nomAlbum);
+     System.exit(0);
+   }
+   if (source==mnGeneration) {
+     //  recupération du nom du repertoire
+     repCourant = (String) repList.getSelectedItem();
+     String nomAlbum = champsNomAlbum.getText();
+
+     // recupération du nom de la source
+     pathSource = champsSource.getText(); [...]
+
+     // création de l'album
+     fileUtil.genererAlbum(repCourant, pathSource, nomAlbum);
+
+     // lancement de l'index
+     fileUtil.launchIndex(repCourant, nomAlbum);
+   }
+}
+
+----
+
+=== Questions
+. Quels types de problème de visibilité et de maintenance véhicule ce code ?
+. Proposer un refactoring (une refonte du code qui préserve le comportement initial).
+
+=== Conclusion
+
