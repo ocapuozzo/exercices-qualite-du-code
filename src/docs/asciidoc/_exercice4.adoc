@@ -6,9 +6,10 @@ endif::[]
 == Question de nommage
 
 Une méthode extraite d'une application développée par un étudiant :
+
 image::code-java.png[code avec pb de nommage]
 
 === Questions
 
-1. Dans quelle mesure les commentaires vous paraissent-ils utiles ?
-2. Proposer un refactoring (une refonte qui préserve le comportement).
+1. Généralement, l'abondance de commentaires est signe d'un manque de lisibilité du code. Est-ce le cas ici ?
+2. Proposer un refactoring qui corrige ce problème (une refonte qui préserve le comportement).

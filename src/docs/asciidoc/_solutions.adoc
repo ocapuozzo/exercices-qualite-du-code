@@ -8,31 +8,31 @@ endif::[]
 Les conclusions
 
 ====
-- Multiples sorties (return)
+1- Multiples sorties (return)
 
 Un principe général consiste à formuler le fait qu’une fonction, qui par définition ne dispose que d’un point d’entrée (une fonction est appelée par son nom), ne devrait avoir qu’un seul point de sortie, qu’une seule instruction de retour (sauf exception qui ne nuirait pas à la lecture du code).  À noter que le point de sortie par défaut d’une procédure est la fin de se son corps (instruction return implicite).
 ====
 
 ====
-- Duplication de code
+2- Duplication de code
 
 On factorise la logique dupliquée (la séquence d'instructions) en concevant une fonction (méthode privée)
 ====
 
 ====
-- Exception
+3- Exception
 
 Une fonction qui ne peut pas réaliser sa tache ne doit pas retourner à l'appelant.
 voir : http://profs.vinci-melun.org/profs/okpu/cours/gestionDesExceptions/
 ====
 ====
-- Commentaire
+4- Commentaire
 
-Une abondance de commentaire est signe de refactoring imminent.
+Une abondance de commentaires est signe de refactoring imminent (renommage et création de fonctions)
 ====
 
 ====
-- Portée de variable
+5- Portée de variable
 
 Une variable utilisée pour des besoins locaux devrait être déclarée... localement (aux risques de devenir une zone tampon d'échange entre méthodes et provoquer des effets de bords indésirables).
 Une variable d'instance (un attribut, un champ) participe à la détermination de l'état d'un objet (instance). C'est une propriété qui est généralement accessible en lecture et ou écriture via des méthodes d'instance.

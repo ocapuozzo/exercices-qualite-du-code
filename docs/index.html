@@ -392,18 +392,22 @@ les classes ne sont pas chargées de responsabilité et les méthodes courtes (s
 <div class="sect2">
 <h3 id="question-de-nommage"><a class="anchor" href="#question-de-nommage"></a>Question de nommage</h3>
 <div class="paragraph">
-<p>Une méthode extraite d&#8217;une application développée par un étudiant :
-image::code-java.png[code avec pb de nommage]</p>
+<p>Une méthode extraite d&#8217;une application développée par un étudiant :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/code-java.png" alt="code avec pb de nommage">
+</div>
 </div>
 <div class="sect3">
 <h4 id="questions-4"><a class="anchor" href="#questions-4"></a>Questions</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dans quelle mesure les commentaires vous paraissent-ils utiles ?</p>
+<p>Généralement, l&#8217;abondance de commentaires est signe d&#8217;un manque de lisibilité du code. Est-ce le cas ici ?</p>
 </li>
 <li>
-<p>Proposer un refactoring (une refonte qui préserve le comportement).</p>
+<p>Proposer un refactoring qui corrige ce problème (une refonte qui préserve le comportement).</p>
 </li>
 </ol>
 </div>
@@ -515,12 +519,8 @@ image::code-java.png[code avec pb de nommage]</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Multiples sorties (return)</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>1- Multiples sorties (return)</p>
 </div>
 <div class="paragraph">
 <p>Un principe général consiste à formuler le fait qu’une fonction, qui par définition ne dispose que d’un point d’entrée (une fonction est appelée par son nom), ne devrait avoir qu’un seul point de sortie, qu’une seule instruction de retour (sauf exception qui ne nuirait pas à la lecture du code).  À noter que le point de sortie par défaut d’une procédure est la fin de se son corps (instruction return implicite).</p>
@@ -529,12 +529,8 @@ image::code-java.png[code avec pb de nommage]</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Duplication de code</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>2- Duplication de code</p>
 </div>
 <div class="paragraph">
 <p>On factorise la logique dupliquée (la séquence d&#8217;instructions) en concevant une fonction (méthode privée)</p>
@@ -543,12 +539,8 @@ image::code-java.png[code avec pb de nommage]</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Exception</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>3- Exception</p>
 </div>
 <div class="paragraph">
 <p>Une fonction qui ne peut pas réaliser sa tache ne doit pas retourner à l&#8217;appelant.
@@ -558,26 +550,18 @@ voir : <a href="http://profs.vinci-melun.org/profs/okpu/cours/gestionDesExceptio
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Commentaire</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>4- Commentaire</p>
 </div>
 <div class="paragraph">
-<p>Une abondance de commentaire est signe de refactoring imminent.</p>
+<p>Une abondance de commentaires est signe de refactoring imminent (renommage et création de fonctions)</p>
 </div>
 </div>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Portée de variable</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>5- Portée de variable</p>
 </div>
 <div class="paragraph">
 <p>Une variable utilisée pour des besoins locaux devrait être déclarée&#8230;&#8203; localement (aux risques de devenir une zone tampon d&#8217;échange entre méthodes et provoquer des effets de bords indésirables).
